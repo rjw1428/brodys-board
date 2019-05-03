@@ -4,7 +4,7 @@ import { Response } from '@angular/http';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { ItemsService } from '../shared/items.service';
 import { AngularFireStorage } from 'angularfire2/storage';
-import { timeout } from 'q';
+// import { timeout } from 'q';
 import { Router } from '@angular/router';
 import { trigger, transition, animate, style, stagger, query } from '@angular/animations';
 
