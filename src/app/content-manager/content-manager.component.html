@@ -1,0 +1,17 @@
+<div class="container bg">
+  <div class="row" *ngFor="let file of fileList | async">
+    <div class="col-12">
+      <app-upload [file]="file" (click)="onClick(file)" [selected]="isSelected(file)"></app-upload>
+    </div>
+  </div>
+</div>
+
+<div class="main bottom right">
+  <button type="button" mat-raised-button color="primary" (click)="add()">Store Image</button>
+  <br>
+  <button type="button" mat-raised-button color="warn" (click)="addToCarousel()" *ngIf="selected!=null && !selected.carousel">Add to Header</button>
+  <button type="button" mat-raised-button color="default" (click)="removeFromCarousel()" *ngIf="selected!=null && selected.carousel">Remove From Header</button>
+  <br>
+  <button type="button" mat-raised-button color="accent" (click)="remove()" *ngIf="selected!=null">Delete
+    Image</button>
+</div>

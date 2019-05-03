@@ -1,0 +1,29 @@
+<!-- <div [@tableState]="state" [@start]="start" #block> -->
+
+<div [id]="index" class="box" [ngStyle]="setGridColStyle()" (click)="onChange()">
+  <div class="out" *ngIf="item.available==false">
+    <h1>SOLD OUT</h1>
+  </div>
+  <div [ngClass]="{background: true, 'nogo':!item.available}" [ngStyle]="setBackgroundStyle()"></div>
+  <div class="image-container" [class.nogo]="!item.available">
+    <img [src]="imgUrl" *ngIf="imgUrl!=null">
+  </div>
+  <div class="title-container" [class.nogo]="!item.available" [style.fontSize]="titleFontSize+'px'">{{ item.company | uppercase
+    }} {{ item.beer | uppercase }}
+  </div>
+  <div class="abv-container" [class.nogo]="!item.available" [style.fontSize]="abvFontSize+'px'">{{ item.abv | abv }}
+  </div>
+
+  <div class="description-container" [class.nogo]="!item.available" [style.fontSize]="noteFontSize+'px'">{{ item.note | titlecase
+    }}
+    <p *ngIf="item.happyHour==false">Not On Happy Hour</p>
+  </div>
+  <div class="button-row">
+    <div class="button-group" *ngIf="state=='change' && editable==true" colspan="4">
+      <button class="btn btn-danger delete" (click)="onRemove()">Delete</button>
+      <button class="btn btn-warning setOut" (click)="onOut()">Out</button>
+      <button class="btn btn-primary edit" (click)="onEdit()">Edit</button>
+      <button class="btn btn-success add" (click)=" onNew()">Insert Below</button>
+    </div>
+  </div>
+</div>

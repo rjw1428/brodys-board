@@ -1,0 +1,19 @@
+<div class="container my-1" [ngClass]="{'bg':!selected, 'bg-select':selected}">
+  <div class="row">
+    <div class="col-6">
+      <div class="row">
+        <div class="col-12">
+          <h3>{{item.name}}</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <p>{{item.description}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-6">
+        <img class="img-container m-2" [src]="item.img.fbUrl" *ngIf="item.img">
+    </div>
+  </div>
+</div>

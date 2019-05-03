@@ -1,0 +1,12 @@
+<div class="container bg" *ngIf="foodList.length>0">
+  <div class="row">
+    <div class="col-12 text-center">
+      <h2>{{category.name}}</h2>
+    </div>
+  </div>
+  <div class="row" *ngFor="let food of foodList;">
+    <div class="col-12" style="color: white">
+      <app-food-item [item]="food" (click)="onClick(food)" [selected]="isSelected(food)"></app-food-item>
+    </div>
+  </div>
+</div>

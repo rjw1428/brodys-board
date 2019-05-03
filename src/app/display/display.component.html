@@ -1,0 +1,33 @@
+<!-- BACKGROUND LOGO -->
+<img [src]="logoUrl" class="img" *ngIf="logoUrl!=null" [@background]>
+
+<div class="new-block left" [@list1]="col1.length" #column1>
+  <div class="table">
+    <app-item class="trow" *ngFor="let item1 of col1; let n=index;" 
+    [item]="item1" 
+    [index]="n"
+    [iconSize]="iconSize"
+    [abvFontSize]="abvFontSize"
+    [noteFontSize]="noteFontSize"
+    [titleFontSize]="titleFontSize"
+    [backgroundColor]="backgroundColor">
+    </app-item>
+  </div>
+</div>
+<div class="new-block right" [@list2]="col2.length" #column2>
+  <div class="table">
+    <app-item class="trow" *ngFor="let item2 of col2; let n=index;" 
+    [item]="item2" 
+    [index]="n"
+    [iconSize]="iconSize"
+    [abvFontSize]="abvFontSize"
+    [noteFontSize]="noteFontSize"
+    [titleFontSize]="titleFontSize"
+    [backgroundColor]="backgroundColor">
+    </app-item>
+  </div>
+</div>
+
+<!-- <div class="popup-container">
+  <app-popup [screenNum]="screenNum" (displayComplete)="onPopupComplete()"></app-popup>
+</div> -->

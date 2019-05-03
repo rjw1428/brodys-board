@@ -1,0 +1,25 @@
+.element {
+    display: grid;
+    grid-template-columns: 5% auto;
+    margin-top: 15px;
+}
+
+.numbering{
+    /* border: 1px solid blue; */
+    grid-column: 1/span 1;
+    align-self: center;
+    position: relative;
+    left: -10px;
+    text-align: right;
+    color:white;
+    font-size: 20px;
+}
+
+.item {
+    /* border: 1px solid green; */
+    grid-column: 2/span 1;
+}
+
+.container {
+    /* border: 1px solid red; */
+}

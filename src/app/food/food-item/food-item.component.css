@@ -1,0 +1,22 @@
+.img-container {
+    height: auto;
+    width: 100%;
+    box-shadow: 2px 2px 2px black;
+}
+
+.bg {
+    background-color: gray;
+    transform: scale(.9);
+}
+.bg-select {
+    background-color: lightgray;
+    transform: scale(1);
+}
+
+h3 {
+    text-shadow: 2px 2px black;
+}
+
+p {
+    text-shadow: 1px 1px black;
+}

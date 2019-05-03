@@ -1,0 +1,54 @@
+.img{
+    position: absolute;
+    top:50%;
+    left:50%;
+    margin-top: -300px;
+    margin-left: -300px;
+    width:600px; 
+    height: 600px;
+    z-index:0;
+    opacity: .5;
+}
+
+.table {
+    height:100vh;
+    width: 100%;
+    /* border: 1px green solid; */
+    position: relative;
+    display: table;
+    table-layout: fixed;
+    overflow: hidden;
+}
+.trow {
+    display: table-row;
+    width: 100%;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.new-block {
+    padding: 0px;
+    width: 49vw;
+    height:100vh;
+    /* border: 1px blue solid; */
+    position: relative;
+    table-layout: fixed;
+    overflow: hidden;
+}
+
+
+.popup-container {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0px;
+    left: 0px;
+    z-index: 2;
+    overflow: hidden;
+}

@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
+  <div class="container-fluid">
+
+    <a class="navbar-brand">Brody's Menu</a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav mr-auto" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <li class="nav-item" routerLinkActive="active"><a class="nav-link" style="cursor: pointer;" routerLink='drafts'>Beer List</a></li>
+        <li class="nav-item" routerLinkActive="active"><a class="nav-link" style="cursor: pointer;" routerLink='menu'>Menu Items</a></li>
+        <li class="nav-item" routerLinkActive="active"><a class="nav-link" style="cursor: pointer;" routerLink='output'>Text Output</a></li>
+      </ul>
+      <ul class="navbar-nav justify-content-end" data-toggle="collapse" data-target="#collapsibleNavbar">
+          <li class="nav-item" routerLinkActive="active"><a class="nav-link" style="cursor: pointer;" routerLink='content'>Image Manager</a></li>
+        <li class="nav-item" routerLinkActive="active"><a class="nav-link" style="cursor: pointer;" (click)="onForceRefresh()">Force Refresh</a></li>
+        <li class="nav-item" routerLinkActive="active"><a class="nav-link" style="cursor: pointer;" (click)="togglePopup()">Make Me Laugh</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="buffer">
+  <router-outlet></router-outlet>
+</div>

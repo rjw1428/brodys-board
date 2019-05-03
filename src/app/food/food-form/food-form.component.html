@@ -1,0 +1,65 @@
+<h1 mat-dialog-title>Add Menu Item</h1>
+<div mat-dialog-content [formGroup]="menuForm">
+  <!-- <p>Beer Information:</p> -->
+  <input type="hidden" formControlName="id">
+
+  <div class="row w-100">
+    <div class="col-10">
+      <mat-form-field class="w-100">
+        <mat-select disableOptionCentering placeholder="Category..." formControlName="category">
+          <mat-option *ngFor="let cat of categories | async" [value]="cat.id">{{cat.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-2">
+      <button mat-raised-button color="primary" (click)="openCatForm()">New</button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <mat-form-field class="w-100">
+        <input matInput formControlName="name" placeholder="Item Name...">
+        <button mat-button *ngIf="menuForm.get('name').valid" matSuffix mat-icon-button aria-label="Clear"
+          (click)="resetValue('name')">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-6">
+      <mat-form-field class="w-100">
+        <textarea matInput rows=5 formControlName="description" placeholder="Item Description..."></textarea>
+        <button mat-button *ngIf="menuForm.get('description').valid" matSuffix mat-icon-button aria-label="Clear"
+          (click)="resetValue('description')">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+    <div class="col-6">
+        <img class="center" [src]="menuForm.get('img').value.fbUrl" *ngIf="menuForm.get('img').value">
+    </div>
+  </div>
+
+
+  <div class="row w-100">
+    <div class="col-10">
+      <mat-form-field class="w-100">
+        <mat-select placeholder="Image..." formControlName="img">
+          <mat-option *ngFor="let file of fileList | async" [value]="file">{{file.displayName}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-2">
+      <button class="example-button-width" mat-raised-button color="primary" (click)="openImageUpload()">New</button>
+    </div>
+  </div>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-raised-button color="primary" [disabled]="!menuForm.valid" [mat-dialog-close]="onAdd()">Ok</button>
+</div>

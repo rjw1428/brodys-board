@@ -1,0 +1,13 @@
+<!-- <table [@list]="itemList.length"> -->
+<div class="container">
+  <div class="element" *ngFor="let i of itemList; let n=index;">
+    <div class="numbering">
+      {{n+1}}
+    </div>
+    <app-item class="item" [item]="i" [index]="n" [editable]="true" (click)="onClick(i)" (itemRemoved)="onDelete($event)" (itemInserted)="onInsert($event)"
+      (itemChanged)="onEdit($event)" (iconOff)="onIconOff($event)"></app-item>
+  </div>
+  <app-item-edit *ngIf="editMode==true" (itemSubmitted)="onInsertComplete($event)" (itemCancelled)="onCancel()"></app-item-edit>
+</div>
+<!-- <br>
+<button (click)="refresh()" class="btn btn-success btn-lg">Force Refresh</button> -->

@@ -1,0 +1,89 @@
+<div class="formBG" [ngClass]="{'focusCompany':focusCompany, 'focusBeer':focusBeer, 'focusDesc': focusDescription, 'focusAbv':focusAbv}">
+  <div class="title">
+    <h1>Add Menu Item</h1>
+  </div>
+  <form #itemForm="ngForm" (ngSubmit)="onSubmit(itemForm)">
+    <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="service.selectedItem.$key">
+    <input type="hidden" name="imgUrl" #imgUrl="ngModel" [(ngModel)]="service.selectedItem.imgUrl">
+    <input type="hidden" name="available" #available="ngModel" [(ngModel)]="service.selectedItem.available">
+    <input type="hidden" name="order" #order="ngModel" [(ngModel)]="service.selectedItem.order">
+    <input type="hidden" name="lastModified" #lastModified="ngModel" [(ngModel)]="service.selectedItem.lastModified">
+    <div class="form-group input-group-lg">
+      <label for="comapny">Company</label>
+      <input type="text" name="company" class="form-control" #company="ngModel" [(ngModel)]="service.selectedItem.company" placeholder="Brewery" (click)="onClick('company')">
+    </div>
+    <div class="form-group input-group-lg">
+      <label for="beer">Beer</label>
+      <input type="text" name="beer" class="form-control" #beer="ngModel" [(ngModel)]="service.selectedItem.beer" placeholder="Beer Name..." (click)="onClick('beer')">
+    </div>
+    <div class="form-group input-group-lg">
+      <label for="note">Description</label>
+      <input type="text" name="note" class="form-control" #note="ngModel" [(ngModel)]="service.selectedItem.note" placeholder="Beer Description..." (click)="onClick('desc')">
+    </div>
+    <div class="form-group">
+      <div class="input-group-prepend col-xs-6 input-group-lg">
+        <label for="happyHour">Happy Hour?</label>
+        <div class="input-group-addon">
+          <input type="checkbox" name="happyHour" #happyHour="ngModel" [(ngModel)]="service.selectedItem.happyHour" (click)="onClick('check')">
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="abv">ABV</label>
+      <div class="input-group col-xs-6 input-group-lg">
+        <input type="text" name="abv" class="form-control" #abv="ngModel" [(ngModel)]="service.selectedItem.abv" placeholder="0.0" (click)="onClick('abv')">
+        <div class="input-group-addon">%</div>
+      </div>
+    </div>
+    <!--  -->
+    <div class="form-group ">
+      <button class="btn btn-success btn-lg col-xs-4" type="submit">Submit</button>
+      <div class="col-xs-3"></div>
+      <button class="btn btn-danger btn-lg col-xs-4" type="button" (click)="onBack()">Cancel</button>
+    </div>
+  </form>
+</div>
+
+<!-- <div class="formBG">
+  <h1 *ngIf="service.selectedItem.$key==null;else edit">Add Menu Item</h1>
+  <ng-template #edit>
+    <h1>Edit Menu Item</h1>
+  </ng-template>
+  <form #taskForm="ngForm" (ngSubmit)="onSubmit(taskForm)">
+    <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="service.selectedItem.$key">
+    <input type="hidden" name="imgUrl" #$imgUrl="ngModel" [(ngModel)]="service.selectedItem.imgUrl">
+    <input type="hidden" name="available" #$available="ngModel" [(ngModel)]="service.selectedItem.available">
+    <div class="form-group">
+      <label for="company">Company</label>
+      <input type="text" name="company" class="form-control input-lg" #company="ngModel" [(ngModel)]="service.selectedItem.company"
+        placeholder="Enter Brewery...">
+    </div>
+    <br>
+    <div class="form-group">
+      <label for="beer">Beer</label>
+      <input type="text" name="beer" class="form-control input-lg" #beer="ngModel" [(ngModel)]="service.selectedItem.beer" placeholder="Enter Beer Name...">
+    </div>
+    <div class="form-group">
+      <label for="note">Description</label>
+      <input type="text" name="note" class="form-control input-lg" #note="ngModel" [(ngModel)]="service.selectedItem.note" placeholder="Enter Tasting Notes...">
+    </div>
+    <div class="form-group">
+      <label for="abv">ABV</label>
+      <div class="input-group col-xs-3">
+        <input type="text" name="abv" class="form-control input-lg " #abv="ngModel" [(ngModel)]="service.selectedItem.abv" placeholder="0.0">
+        <div class="input-group-addon">%</div>
+      </div>
+      <br>
+      <div class="form-check col-xs-3">
+        <label for="happyHour">On Happy Hour?</label>
+        <input type="checkbox" name="happyHour" class="form-check-label" #happyHour="ngModel" [(ngModel)]="service.selectedItem.happyHour">
+      </div>
+    </div>
+    <br>
+    <div class="col-xs-3"></div>
+    <div class="col-xs-6">
+      <button class="btn btn-danger btn-lg" type="button" (click)="onBack()" style="float:right">Cancel</button>
+      <button class="btn btn-primary btn-lg" type="submit">Submit</button>
+    </div>
+  </form>
+</div> -->

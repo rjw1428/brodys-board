@@ -1,0 +1,9 @@
+.bg {
+    background: rgba(50,50,50,.5);
+    border-radius: 10px;
+    margin: 10px;
+}
+
+h2 {
+    text-shadow: 2px 2px black;
+}

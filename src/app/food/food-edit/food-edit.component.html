@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row" *ngFor="let cat of categoryList">
+    <div class="col-12" style="color: white">
+      <app-category [category]="cat"></app-category>
+    </div>
+  </div>
+</div>
+
+<div class="main bottom right">
+  <button type="button" mat-raised-button color="primary" (click)="add()">Add Item</button>
+  <br>
+  <button type="button" mat-raised-button color="default" (click)="editCategory()">Edit Categories</button>
+  <br>
+  <button type="button" mat-raised-button color="warn" (click)="edit()" *ngIf="service.itemSelected">Edit
+    Item</button>
+  <br>
+  <button type="button" mat-raised-button color="accent" (click)="remove()" *ngIf="service.itemSelected">Delete
+    Item</button>
+</div>
