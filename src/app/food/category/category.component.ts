@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { MenuService } from '../../shared/menu.service';
 import { MenuItem } from '../../shared/menu-item';
 import { Category } from '../../shared/category';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-category',
@@ -23,6 +24,9 @@ export class CategoryComponent implements OnInit {
         if (x.category == this.category.id)
           this.foodList.push(x)
       })
+      this.foodList.sort((a, b) => {
+        return a.order - b.order
+      })
     })
   }
 
@@ -40,5 +44,12 @@ export class CategoryComponent implements OnInit {
     if (this.service.itemSelected && item.id == this.service.itemSelected.id)
       return true
     return false
+  }
+
+  drop(event: CdkDragDrop<MenuItem[]>) {
+    if (event.previousIndex != event.currentIndex) {
+      moveItemInArray(this.foodList, event.previousIndex, event.currentIndex);
+      this.service.updateFoodList(this.foodList)
+    }
   }
 }

@@ -50,8 +50,4 @@ export class PopupComponent implements OnInit {
       })
       .catch(e => console.log(e))
   }
-
-  // setState() {
-  //   return this.visible=="down"?"up":"down";
-  // }
 }

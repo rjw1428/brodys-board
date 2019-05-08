@@ -51,6 +51,14 @@ export class MenuService {
     this.menuCollection.update(key, menuItem)
   }
 
+
+  updateFoodList(items: MenuItem[]) {
+    items.forEach((item, index) => {
+      item['order'] = index;
+      this.updateItem(item)
+    })
+  }
+
   updateCategory(key: string, update: any) {
     this.categoryCollection.update(key, update)
   }
