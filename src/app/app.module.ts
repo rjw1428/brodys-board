@@ -29,7 +29,8 @@ import { ContentManagerComponent } from './content-manager/content-manager.compo
 import { FoodEditComponent } from './food/food-edit/food-edit.component';
 import { UploadComponent } from './content-manager/upload/upload.component';
 import { UploadFormComponent } from './content-manager/upload-form/upload-form.component';
-import { MatInputModule, MatDialogModule, MatButtonModule, MatSelectModule, MatFormFieldModule, MatSnackBarModule, MatCheckboxModule, MatIconModule, MatAutocompleteModule } from '@angular/material';
+import { MatInputModule, MatDialogModule, MatButtonModule, MatSelectModule, MatFormFieldModule, MatSnackBarModule, MatCheckboxModule, MatIconModule, MatAutocompleteModule,  } from '@angular/material';
+import { DragDropModule } from '@angular/cdk/drag-drop'
 import { ContentService } from './shared/content.service';
 import { ScrollDispatchModule } from '@angular/cdk/scrolling';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -101,6 +102,7 @@ const appRoutes: Routes = [
     MatIconModule,
     MatCheckboxModule,
     ScrollDispatchModule,
+    DragDropModule
   ],
   entryComponents: [
     UploadFormComponent,

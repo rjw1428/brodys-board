@@ -6,4 +6,5 @@ export interface MenuItem {
     name: string
     description?: string
     img?: Upload
+    order: number;
 }

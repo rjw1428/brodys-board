@@ -1,6 +1,6 @@
 <div class="container">
-  <div class="row" *ngFor="let cat of categoryList">
-    <div class="col-12" style="color: white">
+  <div cdkDropList class="row" (cdkDropListDropped)="drop($event)">
+    <div class="col-12" style="color: white" *ngFor="let cat of categoryList" cdkDrag>
       <app-category [category]="cat"></app-category>
     </div>
   </div>

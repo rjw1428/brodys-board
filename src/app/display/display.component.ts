@@ -93,7 +93,7 @@ export class DisplayComponent implements OnInit {
     this.service.checkForRefresh(this.screenNum.toString())
 
     this.service.getProperties().snapshotChanges().subscribe(properties => {
-      console.log(properties)
+      //console.log(properties)
       properties.forEach(property => {
         if (property.key == "titleFontSize")
           this.titleFontSize = +property.payload.val()
@@ -173,7 +173,7 @@ export class DisplayComponent implements OnInit {
   }
 
   onItemRemoved(item: { id: string, index: number }) {
-    console.log(item)
+    //console.log(item)
     for (var i = 0; i < this.col1.length; i++)
       if (item.id == this.col1[i].$key) {
         this.col1.splice(item.index, 1)

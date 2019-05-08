@@ -6,6 +6,7 @@ import { MenuItem } from '../../shared/menu-item';
 import { MenuService } from '../../shared/menu.service';
 import { Category } from '../../shared/category';
 import { CategoryEditComponent } from '../category-edit/category-edit.component';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-food-edit',
@@ -23,7 +24,10 @@ export class FoodEditComponent implements OnInit {
 
   ngOnInit() {
     //this.service.getMenuItems().subscribe(vals => this.foodList = vals)
-    this.service.getCategories().subscribe(vals => this.categoryList = vals)
+    this.service.getCategories().subscribe(vals => {
+      this.categoryList = vals
+      this.categoryList.sort((a, b) => a.order - b.order)
+    })
   }
 
   add() {
@@ -74,5 +78,12 @@ export class FoodEditComponent implements OnInit {
     if (confirm("Are you sure you want to delete this menu item"))
       this.service.removeItem()
     this.service.itemSelected = null
+  }
+
+  drop(event: CdkDragDrop<MenuItem[]>) {
+    if (event.previousIndex != event.currentIndex) {
+      moveItemInArray(this.categoryList, event.previousIndex, event.currentIndex);
+      // this.service.updateFoodList(this.foodList)
+    }
   }
 }

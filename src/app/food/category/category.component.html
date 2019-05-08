@@ -4,9 +4,22 @@
       <h2>{{category.name}}</h2>
     </div>
   </div>
-  <div class="row" *ngFor="let food of foodList;">
+  <!-- <div class="row" *ngFor="let food of foodList;">
     <div class="col-12" style="color: white">
       <app-food-item [item]="food" (click)="onClick(food)" [selected]="isSelected(food)"></app-food-item>
+    </div>
+  </div> -->
+  <div cdkDropList class="row example-list" (cdkDropListDropped)="drop($event)">
+    <div class="col-12 example-box" style="color: white" *ngFor="let food of foodList;" cdkDragLockAxis="y"
+      cdkDragBoundary=".row" cdkDrag>
+      <div class="row">
+        <div class="col-11">
+          <app-food-item [item]="food" (click)="onClick(food)" [selected]="isSelected(food)"></app-food-item>
+        </div>
+        <div class="col-1 my-auto" cdkDragHandle>
+          <i class="fas fa-bars fa-3x"></i>
+        </div>
+      </div>
     </div>
   </div>
 </div>
